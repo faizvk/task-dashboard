@@ -5,7 +5,6 @@ export default function TaskList() {
   const { list, filter, search } = useSelector((s) => s.tasks);
 
   const filtered = list.filter((task) => {
-    //search by title
     const matchesSearch = task.title
       .toLowerCase()
       .includes(search.toLowerCase());
@@ -15,10 +14,17 @@ export default function TaskList() {
     return matchesSearch;
   });
 
+  const getEmptyMessage = () => {
+    if (search) return "No tasks match your search";
+    if (filter === "completed") return "No completed tasks";
+    if (filter === "pending") return "No pending tasks";
+    return "No tasks found";
+  };
+
   return (
     <div className="space-y-2 mt-4">
       {filtered.length === 0 && (
-        <p className="text-sm text-gray-500 text-center">No tasks found</p>
+        <p className="text-sm text-gray-500 text-center">{getEmptyMessage()}</p>
       )}
 
       {filtered.map((task) => (
