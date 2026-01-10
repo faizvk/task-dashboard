@@ -22,9 +22,11 @@ export default function TaskList() {
   };
 
   return (
-    <div className="space-y-2 mt-4">
+    <div className="mt-4 space-y-4 sm:space-y-2">
       {filtered.length === 0 && (
-        <p className="text-sm text-gray-500 text-center">{getEmptyMessage()}</p>
+        <p className="text-sm text-gray-500 text-center px-4">
+          {getEmptyMessage()}
+        </p>
       )}
 
       {filtered.map((task) => (
