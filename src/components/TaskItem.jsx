@@ -25,7 +25,6 @@ export default function TaskItem({ task }) {
         relative
       "
     >
-      {/* Task Title */}
       <div className="flex-1 min-w-0">
         {editing ? (
           <input
@@ -59,9 +58,7 @@ export default function TaskItem({ task }) {
         )}
       </div>
 
-      {/* Actions */}
       <div className="flex items-center gap-2">
-        {/* Desktop Buttons */}
         <div className="hidden sm:flex items-center gap-2">
           <button
             onClick={() => dispatch(toggleTask(task.id))}
@@ -78,7 +75,6 @@ export default function TaskItem({ task }) {
           </button>
         </div>
 
-        {/* Mobile 3-Dot Menu */}
         <div className="sm:hidden">
           <button
             onClick={() => setMenuOpen((v) => !v)}
@@ -120,7 +116,6 @@ export default function TaskItem({ task }) {
           )}
         </div>
 
-        {/* Delete (All Screens) */}
         <button
           onClick={() => dispatch(deleteTask(task.id))}
           className="rounded-md px-2 py-1 text-xs font-medium text-red-600 border border-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 transition"
